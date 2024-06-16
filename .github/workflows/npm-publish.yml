@@ -1,0 +1,26 @@
+name: Node.js Package to npm
+
+# trigger when a release is created
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          npm install 
+          npm run build
+          npm run prepare:dist
+          cd ./dist
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
