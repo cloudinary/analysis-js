@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.1](https://github.com/cloudinary/analysis-js/compare/0.1.0...0.1.1) (20-10-2024)
+
+
+
 ## [0.1.0](https://github.com/cloudinary/analysis-js/compare/0.0.1...0.1.0) (20-10-2024)
 
 

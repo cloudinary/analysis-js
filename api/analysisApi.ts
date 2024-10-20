@@ -51,7 +51,7 @@ let defaultBasePath = 'https://api.cloudinary.com/v2/analysis/CLOUD_NAME/analyze
 export enum AnalysisApiApiKeys {
 }
 
-const USER_AGENT = `CloudinaryAnalysisNodeJS/0.1.0 (Node ${process.versions.node})`;
+const USER_AGENT = `CloudinaryAnalysisNodeJS/0.1.1 (Node ${process.versions.node})`;
 
 export class AnalysisApi {
     protected _basePath = defaultBasePath;
@@ -99,12 +99,12 @@ export class AnalysisApi {
         const pathname = path.pathname;
 
         // Regex to match the version and existing cloudName
-        const regex = /^(\/v\d+)(\/[^\/]+)(\/.*)?$/;
+        const regex = /^(\/v\d+)(\/[^\/]+)(\/[^\/]+)(\/.*)?$/;
 
         // Replace the cloudName only if it is present in the pathname
         if (regex.test(pathname)) {
-            path.pathname = pathname.replace(regex, (match, version, existingCloudName, restOfPath) => {
-                return `${version}/${cloudName}${restOfPath || ''}`;
+            path.pathname = pathname.replace(regex, (match, version, module, existingCloudName, restOfPath) => {
+                return `${version}${module}/${cloudName}${restOfPath || ''}`;
             });
         }
 

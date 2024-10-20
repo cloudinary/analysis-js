@@ -1,6 +1,6 @@
 {
   "name": "@cloudinary/analysis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NodeJS client for @cloudinary/analysis",
   "main": "./api.js",
   "types": "./api.d.ts",
