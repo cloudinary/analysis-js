@@ -2,9 +2,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**data** | [**AnalysisPayload**](AnalysisPayload.md) |  | 
-**requestId** | **string** |  | 
+| Name         | Type          | Description   | Notes         |
+| ------------ | ------------- | ------------- | ------------- |
+| **data** | [**AnalysisPayload**](AnalysisPayload.md) |  |  |
+| **limits** | [**Limits**](Limits.md) |  | [optional]  |
+| **requestId** | **string** |  |  |
 
 

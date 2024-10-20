@@ -2,9 +2,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**entity** | **string** |  | 
-**analysis** | **object** |  | 
+| Name         | Type          | Description   | Notes         |
+| ------------ | ------------- | ------------- | ------------- |
+| **entity** | **string** |  |  |
+| **analysis** | **object** |  |  |
 
 
