@@ -1,0 +1,26 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Analyze API (Beta):
+        inputs:
+            - location: https://cloudinary.github.io/api-schemas/analysis/schema.yml
+        overlays:
+            - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-cloud-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/analysis/overlays/modifications-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/analysis/overlays/name-modifications-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/analysis/overlays/source-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/cloudinary/cloudinary/analyze-api
+targets:
+    analysis-js:
+        target: typescript
+        source: Analyze API (Beta)
+        publish:
+            npm:
+                token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/cloudinary/cloudinary/analyze-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)
+            blocking: false
