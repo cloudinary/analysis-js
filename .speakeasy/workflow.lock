@@ -1,0 +1,44 @@
+speakeasyVersion: 1.531.1
+sources:
+    Analyze API (Beta):
+        sourceNamespace: analyze-api
+        sourceRevisionDigest: sha256:c6f09e011325752f36dfc781ac2e8477f3993d349acbd3e9f08461013b6e1d2e
+        sourceBlobDigest: sha256:09acde58152aca4f5433e097ffbbd1b025e519660034b1c9ee8daf68a506a414
+        tags:
+            - latest
+            - 0.2.0
+targets:
+    analysis-js:
+        source: Analyze API (Beta)
+        sourceNamespace: analyze-api
+        sourceRevisionDigest: sha256:c6f09e011325752f36dfc781ac2e8477f3993d349acbd3e9f08461013b6e1d2e
+        sourceBlobDigest: sha256:09acde58152aca4f5433e097ffbbd1b025e519660034b1c9ee8daf68a506a414
+        codeSamplesNamespace: analyze-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:e44a75d7f1cc28889ffbeb46c100cad8bdf6efeab0fe59dbcfc18fc17824be5a
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Analyze API (Beta):
+            inputs:
+                - location: https://cloudinary.github.io/api-schemas/analysis/schema.yml
+            overlays:
+                - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-cloud-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/analysis/overlays/modifications-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/analysis/overlays/name-modifications-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/analysis/overlays/source-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/cloudinary/cloudinary/analyze-api
+    targets:
+        analysis-js:
+            target: typescript
+            source: Analyze API (Beta)
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/cloudinary/cloudinary/analyze-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
