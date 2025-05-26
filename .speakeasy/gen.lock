@@ -1,17 +1,19 @@
 lockVersion: 2.0.0
 id: 2cbfefb5-ef48-4650-9f21-e38c7e05b9a9
 management:
-  docChecksum: db75070bc0f749f179866fa672e2a8c8
+  docChecksum: a65fdbfaf49bb322db3e3a5170b3aff3
   docVersion: 0.2.0
-  speakeasyVersion: 1.531.1
-  generationVersion: 2.568.5
-  releaseVersion: 0.2.0
-  configChecksum: 6f4d97ca6d21d5f1685e3befd212d7b8
+  speakeasyVersion: 1.551.0
+  generationVersion: 2.610.0
+  releaseVersion: 0.3.0
+  configChecksum: 06c99e90b91b0d7e17234b3c63f41cae
+  repoURL: https://github.com/cloudinary/analysis-js.git
+  installationURL: https://github.com/cloudinary/analysis-js
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.5
+    core: 3.21.9
     customSecuritySchemes: 0.1.1
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
@@ -19,7 +21,8 @@ features:
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.82.5
+    mcpServer: 0.9.2
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
@@ -180,6 +183,35 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/analyzeAiVisionGeneral.ts
+  - src/mcp-server/tools/analyzeAiVisionModeration.ts
+  - src/mcp-server/tools/analyzeAiVisionTagging.ts
+  - src/mcp-server/tools/analyzeCaptioning.ts
+  - src/mcp-server/tools/analyzeCldFashion.ts
+  - src/mcp-server/tools/analyzeCldText.ts
+  - src/mcp-server/tools/analyzeCoco.ts
+  - src/mcp-server/tools/analyzeGoogleLogoDetection.ts
+  - src/mcp-server/tools/analyzeGoogleTagging.ts
+  - src/mcp-server/tools/analyzeHumanAnatomy.ts
+  - src/mcp-server/tools/analyzeImageQuality.ts
+  - src/mcp-server/tools/analyzeLvis.ts
+  - src/mcp-server/tools/analyzeShopClassifier.ts
+  - src/mcp-server/tools/analyzeUnidet.ts
+  - src/mcp-server/tools/analyzeWatermarkDetection.ts
+  - src/mcp-server/tools/tasksGetStatus.ts
   - src/models/components/aivisiongeneralanalysisdata.ts
   - src/models/components/aivisionmoderationanalysisdata.ts
   - src/models/components/aivisiontagginganalysisdata.ts
@@ -272,11 +304,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}, "prompts": ["Describe this image in detail", "Does this image contain an insect?"]}
@@ -286,26 +318,26 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_ai_vision_moderation:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}, "rejection_questions": ["Does this image contain any violent activity?", "Is there any nudity in the image?"]}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"responses": [{"prompt": "Does the image contain any violent activity?", "value": "no"}, {"prompt": "Is there any nudity in the image?", "value": "yes"}], "model_version": 1}}}
+          application/json: null
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: null
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}, "rejection_questions": ["Does this image contain any violent activity?", "Is there any nudity in the image?"]}
@@ -315,40 +347,40 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: null
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_ai_vision_tagging:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}, "tag_definitions": [{"name": "cigarettes", "description": "Does the image contain a pack of cigarettes?"}, {"name": "furniture", "description": "Does the image contain any tables, chairs, couches or sofas?"}]}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": [{"name": "cat"}, {"name": "table"}], "model_version": 1}}}
+          application/json: {"limits": null, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": [{"name": "cat"}, {"name": "table"}], "model_version": 1}}}
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}, "tag_definitions": [{"name": "cigarettes", "description": "Does the image contain a pack of cigarettes?"}, {"name": "furniture", "description": "Does the image contain any tables, chairs, couches or sofas?"}]}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": [{"name": "cat"}, {"name": "table"}], "model_version": 1}}}
+          application/json: {"limits": null, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": [{"name": "cat"}, {"name": "table"}], "model_version": 1}}}
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_captioning:
     UriExample:
       requestBody:
@@ -359,11 +391,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -373,26 +405,26 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_cld_fashion:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": {}, "model_version": 1}}}
+          application/json: null
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -402,11 +434,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_cld_text:
     UriExample:
       requestBody:
@@ -417,11 +449,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -431,40 +463,40 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_coco:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": {}, "model_version": 1}}}
+          application/json: null
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": {}, "model_version": 1}}}
+          application/json: {"limits": null, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": {}, "model_version": 1}}}
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_google_logo_detection:
     UriExample:
       requestBody:
@@ -473,11 +505,11 @@ examples:
         "200":
           application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"logo_annotations": [{"mid": "/m/045c7b", "description": "google", "score": 0.980325, "bounding_poly": {"vertices": [{"x": 12, "y": 42}, {"x": 439, "y": 42}, {"x": 439, "y": 285}, {"x": 12, "y": 285}]}}]}}}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -485,11 +517,11 @@ examples:
         "200":
           application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"logo_annotations": [{"mid": "/m/045c7b", "description": "google", "score": 0.980325, "bounding_poly": {"vertices": [{"x": 12, "y": 42}, {"x": 439, "y": 42}, {"x": 439, "y": 285}, {"x": 12, "y": 285}]}}]}}}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_google_tagging:
     UriExample:
       requestBody:
@@ -500,11 +532,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -514,26 +546,26 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_human_anatomy:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": {}, "model_version": 1}}}
+          application/json: null
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": null}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -543,55 +575,55 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": null}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_image_quality:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"quality": "medium", "score": 0.45218, "confidence": 0.8, "model_version": 1}}}
+          application/json: {"limits": null, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"quality": "medium", "score": 0.45218, "confidence": 0.8, "model_version": 1}}}
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: null
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"quality": "medium", "score": 0.45218, "confidence": 0.8, "model_version": 1}}}
+          application/json: {"limits": null, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"quality": "medium", "score": 0.45218, "confidence": 0.8, "model_version": 1}}}
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_lvis:
     UriExample:
       requestBody:
         application/json: {"source": {"uri": "https://res.cloudinary.com/demo/image/upload/sample.jpg"}}
       responses:
         "200":
-          application/json: {"limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}, "request_id": "17c3b70c5096df0e77e838323abb7029", "data": {"analysis": {"tags": {}, "model_version": 1}}}
+          application/json: null
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -601,11 +633,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_shop_classifier:
     UriExample:
       requestBody:
@@ -616,11 +648,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -630,11 +662,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_unidet:
     UriExample:
       requestBody:
@@ -645,11 +677,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -659,11 +691,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   analyze_watermark_detection:
     UriExample:
       requestBody:
@@ -674,11 +706,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
     AssetIDExample:
       requestBody:
         application/json: {"source": {"asset_id": "e12345b5c456c8901bbb0efc00c0fcf"}}
@@ -688,11 +720,11 @@ examples:
         "202":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "pending"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   get_analysis_task_status:
     "":
       parameters:
@@ -702,10 +734,10 @@ examples:
         "200":
           application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "processing"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
         "400":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
         "429":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "request_id": "17c3b70c5096df0e77e838323abb7029"}}
-examplesVersion: 1.0.1
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+examplesVersion: 1.0.2
 generatedTests: {}
