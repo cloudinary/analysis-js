@@ -104,9 +104,9 @@ Add the following server definition to your `claude_desktop_config.json` file:
         "-y", "--package", "@cloudinary/analysis",
         "--",
         "mcp", "start",
-        "--cloud-name", "...",
         "--api-key", "...",
-        "--api-secret", "..."
+        "--api-secret", "...",
+        "--o-auth2", "..."
       ]
     }
   }
@@ -129,9 +129,9 @@ Create a `.cursor/mcp.json` file in your project root with the following content
         "-y", "--package", "@cloudinary/analysis",
         "--",
         "mcp", "start",
-        "--cloud-name", "...",
         "--api-key", "...",
-        "--api-secret", "..."
+        "--api-secret", "...",
+        "--o-auth2", "..."
       ]
     }
   }
@@ -144,8 +144,24 @@ You can also run MCP servers as a standalone binary with no additional dependenc
 
 ```bash
 curl -L -o mcp-server \
-    https://github.com/cloudinary/analysis-js/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
 chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
 ```
 
 For a full list of server arguments, run:
