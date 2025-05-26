@@ -80,6 +80,79 @@ yarn add @cloudinary/analysis zod
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
 ```
+
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server from npm.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "CloudinaryAnalysis": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@cloudinary/analysis",
+        "--",
+        "mcp", "start",
+        "--cloud-name", "...",
+        "--api-key", "...",
+        "--api-secret", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Create a `.cursor/mcp.json` file in your project root with the following content:
+
+```json
+{
+  "mcpServers": {
+    "CloudinaryAnalysis": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@cloudinary/analysis",
+        "--",
+        "mcp", "start",
+        "--cloud-name", "...",
+        "--api-key", "...",
+        "--api-secret", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/cloudinary/analysis-js/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @cloudinary/analysis -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
