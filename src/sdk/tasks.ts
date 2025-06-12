@@ -5,7 +5,6 @@
 import { tasksGetStatus } from "../funcs/tasksGetStatus.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Tasks extends ClientSDK {
@@ -16,12 +15,12 @@ export class Tasks extends ClientSDK {
    * Get the status of an analysis task.
    */
   async getStatus(
-    request: operations.GetAnalysisTaskStatusRequest,
+    taskId: string,
     options?: RequestOptions,
   ): Promise<components.GetTaskStatusResponse> {
     return unwrapAsync(tasksGetStatus(
       this,
-      request,
+      taskId,
       options,
     ));
   }

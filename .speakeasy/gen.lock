@@ -3,22 +3,23 @@ id: 2cbfefb5-ef48-4650-9f21-e38c7e05b9a9
 management:
   docChecksum: a65fdbfaf49bb322db3e3a5170b3aff3
   docVersion: 0.2.0
-  speakeasyVersion: 1.551.0
-  generationVersion: 2.610.0
-  releaseVersion: 0.3.0
-  configChecksum: 06c99e90b91b0d7e17234b3c63f41cae
+  speakeasyVersion: 1.561.0
+  generationVersion: 2.628.0
+  releaseVersion: 0.4.0
+  configChecksum: 6e89578a90ef051b9ed32adc6390c565
   repoURL: https://github.com/cloudinary/analysis-js.git
   installationURL: https://github.com/cloudinary/analysis-js
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.9
+    core: 3.21.11
     customSecuritySchemes: 0.1.1
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
+    flattening: 2.82.1
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
@@ -27,8 +28,8 @@ features:
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
-    unions: 2.85.8
+    sdkHooks: 0.3.0
+    unions: 2.85.9
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -258,10 +259,12 @@ generatedFiles:
   - src/models/components/unidetanalysisdata.ts
   - src/models/components/watermarkdetectionanalysisdata.ts
   - src/models/errors/apierror.ts
+  - src/models/errors/cloudinaryanalysiserror.ts
   - src/models/errors/errorresponse.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
   - src/models/errors/ratelimitedresponse.ts
+  - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/models/operations/analyzeaivisiongeneral.ts
   - src/models/operations/analyzeaivisionmoderation.ts
@@ -727,6 +730,19 @@ examples:
           application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
   get_analysis_task_status:
     "":
+      parameters:
+        path:
+          task_id: "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb"
+      responses:
+        "200":
+          application/json: {"data": {"task_id": "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb", "status": "processing"}, "request_id": "17c3b70c5096df0e77e838323abb7029"}
+        "400":
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+        "429":
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}, "limits": {"items": [{"type": "ai_vision", "used_by_request": 123, "remaining": 500, "limit": 10000, "reset_time": "2024-01-20T12:34:56Z"}]}}
+        "500":
+          application/json: {"error": {"category": "user_error", "code": "MA_00001", "message": "missing parameters", "details": {}, "request_id": "17c3b70c5096df0e77e838323abb7029"}}
+    speakeasy-default-get-analysis-task-status:
       parameters:
         path:
           task_id: "053f4bde4b933c8ecef23724ecde63b667c1ea21816d56c161c7ec1df6297da4b43109625650e9edf0f42152cc4cc32c8ad57824ac75ba8e05020f827c415559ac1248076a2d72c0a73af0479cca77eb"

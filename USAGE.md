@@ -22,7 +22,6 @@ async function run() {
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 

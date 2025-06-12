@@ -4,6 +4,7 @@
 
 import * as z from "zod";
 import * as components from "../components/index.js";
+import { CloudinaryAnalysisError } from "./cloudinaryanalysiserror.js";
 
 /**
  * Bad request
@@ -15,19 +16,21 @@ export type ErrorResponseData = {
 /**
  * Bad request
  */
-export class ErrorResponse extends Error {
+export class ErrorResponse extends CloudinaryAnalysisError {
   error?: components.ErrorObject | null | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: ErrorResponseData;
 
-  constructor(err: ErrorResponseData) {
+  constructor(
+    err: ErrorResponseData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     if (err.error != null) this.error = err.error;
 
     this.name = "ErrorResponse";
@@ -41,9 +44,16 @@ export const ErrorResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   error: z.nullable(components.ErrorObject$inboundSchema).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new ErrorResponse(v);
+    return new ErrorResponse(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

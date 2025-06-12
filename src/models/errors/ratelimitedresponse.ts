@@ -4,6 +4,7 @@
 
 import * as z from "zod";
 import * as components from "../components/index.js";
+import { CloudinaryAnalysisError } from "./cloudinaryanalysiserror.js";
 
 /**
  * Rate limited
@@ -16,20 +17,22 @@ export type RateLimitedResponseData = {
 /**
  * Rate limited
  */
-export class RateLimitedResponse extends Error {
+export class RateLimitedResponse extends CloudinaryAnalysisError {
   error?: components.ErrorObject | null | undefined;
   limits?: components.LimitsObject | null | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: RateLimitedResponseData;
 
-  constructor(err: RateLimitedResponseData) {
+  constructor(
+    err: RateLimitedResponseData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     if (err.error != null) this.error = err.error;
     if (err.limits != null) this.limits = err.limits;
 
@@ -45,9 +48,16 @@ export const RateLimitedResponse$inboundSchema: z.ZodType<
 > = z.object({
   error: z.nullable(components.ErrorObject$inboundSchema).optional(),
   limits: z.nullable(components.LimitsObject$inboundSchema).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new RateLimitedResponse(v);
+    return new RateLimitedResponse(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
