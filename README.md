@@ -49,7 +49,6 @@ Currently supports the following analysis options:
 
 <!-- End Table of Contents [toc] -->
 
-<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
@@ -153,7 +152,7 @@ For a full list of server arguments, run:
 ```sh
 npx -y --package @cloudinary/analysis -- mcp start --help
 ```
-<!-- End SDK Installation [installation] -->
+<!-- No SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
 ## Requirements

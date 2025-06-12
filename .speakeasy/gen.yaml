@@ -7,6 +7,7 @@ generation:
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
@@ -29,6 +30,7 @@ typescript:
   authors:
     - Cloudinary
     - Speakeasy
+  baseErrorName: CloudinaryAnalysisError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIError
   enableCustomCodeRegions: false
@@ -48,9 +50,9 @@ typescript:
       webhooks: models/webhooks
   inputModelSuffix: input
   jsonpath: legacy
-  maxMethodParams: 0
+  maxMethodParams: 50
   methodArguments: require-security-and-request
-  moduleFormat: commonjs
+  moduleFormat: dual
   outputModelSuffix: output
   packageName: '@cloudinary/analysis'
   responseFormat: flat

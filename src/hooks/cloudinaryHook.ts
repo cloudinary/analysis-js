@@ -1,13 +1,7 @@
-import { CloudConfig } from "./cloudConfig";
-import {
-    BeforeRequestHook,
-    BeforeRequestContext,
+import {CloudConfig} from "./cloudConfig.js";
+import {BeforeRequestHook, BeforeRequestContext} from "./types.js";
 
-} from "./types";
-
-export class CloudinaryHook
-    implements BeforeRequestHook
-{
+export class CloudinaryHook implements BeforeRequestHook {
     private readonly config: CloudConfig;
 
     constructor() {
@@ -15,8 +9,8 @@ export class CloudinaryHook
     }
 
     beforeRequest(hookCtx: BeforeRequestContext, request: Request): Request {
-        const { cloudName } = this.config;
-        let { apiKey, apiSecret } = this.config;
+        const {cloudName} = this.config;
+        let {apiKey, apiSecret} = this.config;
 
         // Optionally merge user-supplied security overrides
         const securityVal = hookCtx.securitySource ? hookCtx.securitySource : null;
