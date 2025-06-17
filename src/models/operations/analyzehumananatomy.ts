@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeHumanAnatomyResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeHumanAnatomyResponse;
+  | components.AnalyzeHumanAnatomyResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeHumanAnatomyResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeHumanAnatomyResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeHumanAnatomyResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeHumanAnatomyResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeHumanAnatomyResponse$Outbound;
+  | components.AnalyzeHumanAnatomyResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeHumanAnatomyResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeHumanAnatomyResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeHumanAnatomyResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeHumanAnatomyResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**

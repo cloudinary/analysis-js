@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeAiVisionModerationResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeAIVisionModerationResponse;
+  | components.AnalyzeAIVisionModerationResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeAiVisionModerationResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeAiVisionModerationResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeAIVisionModerationResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeAiVisionModerationResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeAIVisionModerationResponse$Outbound;
+  | components.AnalyzeAIVisionModerationResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeAiVisionModerationResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeAiVisionModerationResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeAiVisionModerationResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeAIVisionModerationResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**
