@@ -3,10 +3,10 @@ id: 2cbfefb5-ef48-4650-9f21-e38c7e05b9a9
 management:
   docChecksum: a65fdbfaf49bb322db3e3a5170b3aff3
   docVersion: 0.2.0
-  speakeasyVersion: 1.561.0
-  generationVersion: 2.628.0
-  releaseVersion: 0.4.0
-  configChecksum: 6e89578a90ef051b9ed32adc6390c565
+  speakeasyVersion: 1.563.4
+  generationVersion: 2.630.6
+  releaseVersion: 0.4.1
+  configChecksum: 0138514aa4d3b5628bd4fa75078dea9d
   repoURL: https://github.com/cloudinary/analysis-js.git
   installationURL: https://github.com/cloudinary/analysis-js
   published: true
@@ -29,7 +29,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.9
+    unions: 2.85.10
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

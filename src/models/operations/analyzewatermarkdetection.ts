@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeWatermarkDetectionResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeWatermarkDetectionResponse;
+  | components.AnalyzeWatermarkDetectionResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeWatermarkDetectionResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeWatermarkDetectionResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeWatermarkDetectionResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeWatermarkDetectionResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeWatermarkDetectionResponse$Outbound;
+  | components.AnalyzeWatermarkDetectionResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeWatermarkDetectionResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeWatermarkDetectionResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeWatermarkDetectionResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeWatermarkDetectionResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**

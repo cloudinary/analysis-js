@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeCldFashionResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeCldFashionResponse;
+  | components.AnalyzeCldFashionResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeCldFashionResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeCldFashionResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeCldFashionResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeCldFashionResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeCldFashionResponse$Outbound;
+  | components.AnalyzeCldFashionResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeCldFashionResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeCldFashionResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeCldFashionResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeCldFashionResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**

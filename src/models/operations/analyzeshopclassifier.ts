@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeShopClassifierResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeShopClassifierResponse;
+  | components.AnalyzeShopClassifierResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeShopClassifierResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeShopClassifierResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeShopClassifierResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeShopClassifierResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeShopClassifierResponse$Outbound;
+  | components.AnalyzeShopClassifierResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeShopClassifierResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeShopClassifierResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeShopClassifierResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeShopClassifierResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**

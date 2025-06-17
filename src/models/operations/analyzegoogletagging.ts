@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeGoogleTaggingResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeGoogleTaggingResponse;
+  | components.AnalyzeGoogleTaggingResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeGoogleTaggingResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeGoogleTaggingResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeGoogleTaggingResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeGoogleTaggingResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeGoogleTaggingResponse$Outbound;
+  | components.AnalyzeGoogleTaggingResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeGoogleTaggingResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeGoogleTaggingResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeGoogleTaggingResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeGoogleTaggingResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**

@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AnalyzeImageQualityResponse =
-  | components.AsyncOperationAcceptedResponse
-  | components.AnalyzeImageQualityResponse;
+  | components.AnalyzeImageQualityResponse
+  | components.AsyncOperationAcceptedResponse;
 
 /** @internal */
 export const AnalyzeImageQualityResponse$inboundSchema: z.ZodType<
@@ -18,14 +18,14 @@ export const AnalyzeImageQualityResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.AsyncOperationAcceptedResponse$inboundSchema,
   components.AnalyzeImageQualityResponse$inboundSchema,
+  components.AsyncOperationAcceptedResponse$inboundSchema,
 ]);
 
 /** @internal */
 export type AnalyzeImageQualityResponse$Outbound =
-  | components.AsyncOperationAcceptedResponse$Outbound
-  | components.AnalyzeImageQualityResponse$Outbound;
+  | components.AnalyzeImageQualityResponse$Outbound
+  | components.AsyncOperationAcceptedResponse$Outbound;
 
 /** @internal */
 export const AnalyzeImageQualityResponse$outboundSchema: z.ZodType<
@@ -33,8 +33,8 @@ export const AnalyzeImageQualityResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnalyzeImageQualityResponse
 > = z.union([
-  components.AsyncOperationAcceptedResponse$outboundSchema,
   components.AnalyzeImageQualityResponse$outboundSchema,
+  components.AsyncOperationAcceptedResponse$outboundSchema,
 ]);
 
 /**
