@@ -9,7 +9,7 @@ import { CloudinaryAnalysisError } from "./cloudinaryanalysiserror.js";
 /**
  * Rate limited
  */
-export type RateLimitedResponseData = {
+export type RateLimitedResponseErrorData = {
   error?: components.ErrorObject | null | undefined;
   limits?: components.LimitsObject | null | undefined;
 };
@@ -17,15 +17,15 @@ export type RateLimitedResponseData = {
 /**
  * Rate limited
  */
-export class RateLimitedResponse extends CloudinaryAnalysisError {
+export class RateLimitedResponseError extends CloudinaryAnalysisError {
   error?: components.ErrorObject | null | undefined;
   limits?: components.LimitsObject | null | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: RateLimitedResponseData;
+  data$: RateLimitedResponseErrorData;
 
   constructor(
-    err: RateLimitedResponseData,
+    err: RateLimitedResponseErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
     const message = "message" in err && typeof err.message === "string"
@@ -36,13 +36,13 @@ export class RateLimitedResponse extends CloudinaryAnalysisError {
     if (err.error != null) this.error = err.error;
     if (err.limits != null) this.limits = err.limits;
 
-    this.name = "RateLimitedResponse";
+    this.name = "RateLimitedResponseError";
   }
 }
 
 /** @internal */
-export const RateLimitedResponse$inboundSchema: z.ZodType<
-  RateLimitedResponse,
+export const RateLimitedResponseError$inboundSchema: z.ZodType<
+  RateLimitedResponseError,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -53,7 +53,7 @@ export const RateLimitedResponse$inboundSchema: z.ZodType<
   body$: z.string(),
 })
   .transform((v) => {
-    return new RateLimitedResponse(v, {
+    return new RateLimitedResponseError(v, {
       request: v.request$,
       response: v.response$,
       body: v.body$,
@@ -61,17 +61,17 @@ export const RateLimitedResponse$inboundSchema: z.ZodType<
   });
 
 /** @internal */
-export type RateLimitedResponse$Outbound = {
+export type RateLimitedResponseError$Outbound = {
   error?: components.ErrorObject$Outbound | null | undefined;
   limits?: components.LimitsObject$Outbound | null | undefined;
 };
 
 /** @internal */
-export const RateLimitedResponse$outboundSchema: z.ZodType<
-  RateLimitedResponse$Outbound,
+export const RateLimitedResponseError$outboundSchema: z.ZodType<
+  RateLimitedResponseError$Outbound,
   z.ZodTypeDef,
-  RateLimitedResponse
-> = z.instanceof(RateLimitedResponse)
+  RateLimitedResponseError
+> = z.instanceof(RateLimitedResponseError)
   .transform(v => v.data$)
   .pipe(z.object({
     error: z.nullable(components.ErrorObject$outboundSchema).optional(),
@@ -82,11 +82,11 @@ export const RateLimitedResponse$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RateLimitedResponse$ {
-  /** @deprecated use `RateLimitedResponse$inboundSchema` instead. */
-  export const inboundSchema = RateLimitedResponse$inboundSchema;
-  /** @deprecated use `RateLimitedResponse$outboundSchema` instead. */
-  export const outboundSchema = RateLimitedResponse$outboundSchema;
-  /** @deprecated use `RateLimitedResponse$Outbound` instead. */
-  export type Outbound = RateLimitedResponse$Outbound;
+export namespace RateLimitedResponseError$ {
+  /** @deprecated use `RateLimitedResponseError$inboundSchema` instead. */
+  export const inboundSchema = RateLimitedResponseError$inboundSchema;
+  /** @deprecated use `RateLimitedResponseError$outboundSchema` instead. */
+  export const outboundSchema = RateLimitedResponseError$outboundSchema;
+  /** @deprecated use `RateLimitedResponseError$Outbound` instead. */
+  export type Outbound = RateLimitedResponseError$Outbound;
 }

@@ -16,13 +16,13 @@ export const Value = {
 } as const;
 export type Value = ClosedEnum<typeof Value>;
 
-export type AIVisionModerationAnalysisDataResponses = {
+export type AIVisionModerationAnalysisDataResponse = {
   prompt?: string | undefined;
   value?: Value | undefined;
 };
 
 export type AIVisionModerationAnalysisData = {
-  responses: Array<AIVisionModerationAnalysisDataResponses>;
+  responses: Array<AIVisionModerationAnalysisDataResponse>;
   modelVersion?: number | undefined;
 };
 
@@ -47,8 +47,8 @@ export namespace Value$ {
 }
 
 /** @internal */
-export const AIVisionModerationAnalysisDataResponses$inboundSchema: z.ZodType<
-  AIVisionModerationAnalysisDataResponses,
+export const AIVisionModerationAnalysisDataResponse$inboundSchema: z.ZodType<
+  AIVisionModerationAnalysisDataResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -57,16 +57,16 @@ export const AIVisionModerationAnalysisDataResponses$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type AIVisionModerationAnalysisDataResponses$Outbound = {
+export type AIVisionModerationAnalysisDataResponse$Outbound = {
   prompt?: string | undefined;
   value?: string | undefined;
 };
 
 /** @internal */
-export const AIVisionModerationAnalysisDataResponses$outboundSchema: z.ZodType<
-  AIVisionModerationAnalysisDataResponses$Outbound,
+export const AIVisionModerationAnalysisDataResponse$outboundSchema: z.ZodType<
+  AIVisionModerationAnalysisDataResponse$Outbound,
   z.ZodTypeDef,
-  AIVisionModerationAnalysisDataResponses
+  AIVisionModerationAnalysisDataResponse
 > = z.object({
   prompt: z.string().optional(),
   value: Value$outboundSchema.optional(),
@@ -76,41 +76,36 @@ export const AIVisionModerationAnalysisDataResponses$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace AIVisionModerationAnalysisDataResponses$ {
-  /** @deprecated use `AIVisionModerationAnalysisDataResponses$inboundSchema` instead. */
+export namespace AIVisionModerationAnalysisDataResponse$ {
+  /** @deprecated use `AIVisionModerationAnalysisDataResponse$inboundSchema` instead. */
   export const inboundSchema =
-    AIVisionModerationAnalysisDataResponses$inboundSchema;
-  /** @deprecated use `AIVisionModerationAnalysisDataResponses$outboundSchema` instead. */
+    AIVisionModerationAnalysisDataResponse$inboundSchema;
+  /** @deprecated use `AIVisionModerationAnalysisDataResponse$outboundSchema` instead. */
   export const outboundSchema =
-    AIVisionModerationAnalysisDataResponses$outboundSchema;
-  /** @deprecated use `AIVisionModerationAnalysisDataResponses$Outbound` instead. */
-  export type Outbound = AIVisionModerationAnalysisDataResponses$Outbound;
+    AIVisionModerationAnalysisDataResponse$outboundSchema;
+  /** @deprecated use `AIVisionModerationAnalysisDataResponse$Outbound` instead. */
+  export type Outbound = AIVisionModerationAnalysisDataResponse$Outbound;
 }
 
-export function aiVisionModerationAnalysisDataResponsesToJSON(
-  aiVisionModerationAnalysisDataResponses:
-    AIVisionModerationAnalysisDataResponses,
+export function aiVisionModerationAnalysisDataResponseToJSON(
+  aiVisionModerationAnalysisDataResponse:
+    AIVisionModerationAnalysisDataResponse,
 ): string {
   return JSON.stringify(
-    AIVisionModerationAnalysisDataResponses$outboundSchema.parse(
-      aiVisionModerationAnalysisDataResponses,
+    AIVisionModerationAnalysisDataResponse$outboundSchema.parse(
+      aiVisionModerationAnalysisDataResponse,
     ),
   );
 }
 
-export function aiVisionModerationAnalysisDataResponsesFromJSON(
+export function aiVisionModerationAnalysisDataResponseFromJSON(
   jsonString: string,
-): SafeParseResult<
-  AIVisionModerationAnalysisDataResponses,
-  SDKValidationError
-> {
+): SafeParseResult<AIVisionModerationAnalysisDataResponse, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      AIVisionModerationAnalysisDataResponses$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'AIVisionModerationAnalysisDataResponses' from JSON`,
+      AIVisionModerationAnalysisDataResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AIVisionModerationAnalysisDataResponse' from JSON`,
   );
 }
 
@@ -121,7 +116,7 @@ export const AIVisionModerationAnalysisData$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   responses: z.array(
-    z.lazy(() => AIVisionModerationAnalysisDataResponses$inboundSchema),
+    z.lazy(() => AIVisionModerationAnalysisDataResponse$inboundSchema),
   ),
   model_version: z.number().int().optional(),
 }).transform((v) => {
@@ -132,7 +127,7 @@ export const AIVisionModerationAnalysisData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AIVisionModerationAnalysisData$Outbound = {
-  responses: Array<AIVisionModerationAnalysisDataResponses$Outbound>;
+  responses: Array<AIVisionModerationAnalysisDataResponse$Outbound>;
   model_version?: number | undefined;
 };
 
@@ -143,7 +138,7 @@ export const AIVisionModerationAnalysisData$outboundSchema: z.ZodType<
   AIVisionModerationAnalysisData
 > = z.object({
   responses: z.array(
-    z.lazy(() => AIVisionModerationAnalysisDataResponses$outboundSchema),
+    z.lazy(() => AIVisionModerationAnalysisDataResponse$outboundSchema),
   ),
   modelVersion: z.number().int().optional(),
 }).transform((v) => {

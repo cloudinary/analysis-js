@@ -8,16 +8,16 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Vertices = {
+export type Vertex = {
   x?: number | undefined;
   y?: number | undefined;
 };
 
 export type BoundingPoly = {
-  vertices?: Array<Vertices> | undefined;
+  vertices?: Array<Vertex> | undefined;
 };
 
-export type LogoAnnotations = {
+export type LogoAnnotation = {
   mid?: string | undefined;
   description: string;
   score: number;
@@ -25,30 +25,27 @@ export type LogoAnnotations = {
 };
 
 export type GoogleLogoDetectionAnalysisData = {
-  logoAnnotations: Array<LogoAnnotations>;
+  logoAnnotations: Array<LogoAnnotation>;
 };
 
 /** @internal */
-export const Vertices$inboundSchema: z.ZodType<
-  Vertices,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  x: z.number().int().optional(),
-  y: z.number().int().optional(),
-});
+export const Vertex$inboundSchema: z.ZodType<Vertex, z.ZodTypeDef, unknown> = z
+  .object({
+    x: z.number().int().optional(),
+    y: z.number().int().optional(),
+  });
 
 /** @internal */
-export type Vertices$Outbound = {
+export type Vertex$Outbound = {
   x?: number | undefined;
   y?: number | undefined;
 };
 
 /** @internal */
-export const Vertices$outboundSchema: z.ZodType<
-  Vertices$Outbound,
+export const Vertex$outboundSchema: z.ZodType<
+  Vertex$Outbound,
   z.ZodTypeDef,
-  Vertices
+  Vertex
 > = z.object({
   x: z.number().int().optional(),
   y: z.number().int().optional(),
@@ -58,26 +55,26 @@ export const Vertices$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Vertices$ {
-  /** @deprecated use `Vertices$inboundSchema` instead. */
-  export const inboundSchema = Vertices$inboundSchema;
-  /** @deprecated use `Vertices$outboundSchema` instead. */
-  export const outboundSchema = Vertices$outboundSchema;
-  /** @deprecated use `Vertices$Outbound` instead. */
-  export type Outbound = Vertices$Outbound;
+export namespace Vertex$ {
+  /** @deprecated use `Vertex$inboundSchema` instead. */
+  export const inboundSchema = Vertex$inboundSchema;
+  /** @deprecated use `Vertex$outboundSchema` instead. */
+  export const outboundSchema = Vertex$outboundSchema;
+  /** @deprecated use `Vertex$Outbound` instead. */
+  export type Outbound = Vertex$Outbound;
 }
 
-export function verticesToJSON(vertices: Vertices): string {
-  return JSON.stringify(Vertices$outboundSchema.parse(vertices));
+export function vertexToJSON(vertex: Vertex): string {
+  return JSON.stringify(Vertex$outboundSchema.parse(vertex));
 }
 
-export function verticesFromJSON(
+export function vertexFromJSON(
   jsonString: string,
-): SafeParseResult<Vertices, SDKValidationError> {
+): SafeParseResult<Vertex, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Vertices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Vertices' from JSON`,
+    (x) => Vertex$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Vertex' from JSON`,
   );
 }
 
@@ -87,12 +84,12 @@ export const BoundingPoly$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  vertices: z.array(z.lazy(() => Vertices$inboundSchema)).optional(),
+  vertices: z.array(z.lazy(() => Vertex$inboundSchema)).optional(),
 });
 
 /** @internal */
 export type BoundingPoly$Outbound = {
-  vertices?: Array<Vertices$Outbound> | undefined;
+  vertices?: Array<Vertex$Outbound> | undefined;
 };
 
 /** @internal */
@@ -101,7 +98,7 @@ export const BoundingPoly$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BoundingPoly
 > = z.object({
-  vertices: z.array(z.lazy(() => Vertices$outboundSchema)).optional(),
+  vertices: z.array(z.lazy(() => Vertex$outboundSchema)).optional(),
 });
 
 /**
@@ -132,8 +129,8 @@ export function boundingPolyFromJSON(
 }
 
 /** @internal */
-export const LogoAnnotations$inboundSchema: z.ZodType<
-  LogoAnnotations,
+export const LogoAnnotation$inboundSchema: z.ZodType<
+  LogoAnnotation,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -148,7 +145,7 @@ export const LogoAnnotations$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type LogoAnnotations$Outbound = {
+export type LogoAnnotation$Outbound = {
   mid?: string | undefined;
   description: string;
   score: number;
@@ -156,10 +153,10 @@ export type LogoAnnotations$Outbound = {
 };
 
 /** @internal */
-export const LogoAnnotations$outboundSchema: z.ZodType<
-  LogoAnnotations$Outbound,
+export const LogoAnnotation$outboundSchema: z.ZodType<
+  LogoAnnotation$Outbound,
   z.ZodTypeDef,
-  LogoAnnotations
+  LogoAnnotation
 > = z.object({
   mid: z.string().optional(),
   description: z.string(),
@@ -175,28 +172,26 @@ export const LogoAnnotations$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogoAnnotations$ {
-  /** @deprecated use `LogoAnnotations$inboundSchema` instead. */
-  export const inboundSchema = LogoAnnotations$inboundSchema;
-  /** @deprecated use `LogoAnnotations$outboundSchema` instead. */
-  export const outboundSchema = LogoAnnotations$outboundSchema;
-  /** @deprecated use `LogoAnnotations$Outbound` instead. */
-  export type Outbound = LogoAnnotations$Outbound;
+export namespace LogoAnnotation$ {
+  /** @deprecated use `LogoAnnotation$inboundSchema` instead. */
+  export const inboundSchema = LogoAnnotation$inboundSchema;
+  /** @deprecated use `LogoAnnotation$outboundSchema` instead. */
+  export const outboundSchema = LogoAnnotation$outboundSchema;
+  /** @deprecated use `LogoAnnotation$Outbound` instead. */
+  export type Outbound = LogoAnnotation$Outbound;
 }
 
-export function logoAnnotationsToJSON(
-  logoAnnotations: LogoAnnotations,
-): string {
-  return JSON.stringify(LogoAnnotations$outboundSchema.parse(logoAnnotations));
+export function logoAnnotationToJSON(logoAnnotation: LogoAnnotation): string {
+  return JSON.stringify(LogoAnnotation$outboundSchema.parse(logoAnnotation));
 }
 
-export function logoAnnotationsFromJSON(
+export function logoAnnotationFromJSON(
   jsonString: string,
-): SafeParseResult<LogoAnnotations, SDKValidationError> {
+): SafeParseResult<LogoAnnotation, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogoAnnotations$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogoAnnotations' from JSON`,
+    (x) => LogoAnnotation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LogoAnnotation' from JSON`,
   );
 }
 
@@ -206,7 +201,7 @@ export const GoogleLogoDetectionAnalysisData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  logo_annotations: z.array(z.lazy(() => LogoAnnotations$inboundSchema)),
+  logo_annotations: z.array(z.lazy(() => LogoAnnotation$inboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     "logo_annotations": "logoAnnotations",
@@ -215,7 +210,7 @@ export const GoogleLogoDetectionAnalysisData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type GoogleLogoDetectionAnalysisData$Outbound = {
-  logo_annotations: Array<LogoAnnotations$Outbound>;
+  logo_annotations: Array<LogoAnnotation$Outbound>;
 };
 
 /** @internal */
@@ -224,7 +219,7 @@ export const GoogleLogoDetectionAnalysisData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GoogleLogoDetectionAnalysisData
 > = z.object({
-  logoAnnotations: z.array(z.lazy(() => LogoAnnotations$outboundSchema)),
+  logoAnnotations: z.array(z.lazy(() => LogoAnnotation$outboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     logoAnnotations: "logo_annotations",

@@ -1,13 +1,13 @@
-# Labels
+# Label
 
 ## Example Usage
 
 ```typescript
-import { Labels } from "@cloudinary/analysis/models/components";
+import { Label } from "@cloudinary/analysis/models/components";
 
-let value: Labels = {
+let value: Label = {
   label: "<value>",
-  score: 7997.58,
+  score: 1430.61,
 };
 ```
 

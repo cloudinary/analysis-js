@@ -8,18 +8,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Responses = {
+export type AIVisionGeneralAnalysisDataResponse = {
   value?: string | undefined;
 };
 
 export type AIVisionGeneralAnalysisData = {
-  responses: Array<Responses>;
+  responses: Array<AIVisionGeneralAnalysisDataResponse>;
   modelVersion?: number | undefined;
 };
 
 /** @internal */
-export const Responses$inboundSchema: z.ZodType<
-  Responses,
+export const AIVisionGeneralAnalysisDataResponse$inboundSchema: z.ZodType<
+  AIVisionGeneralAnalysisDataResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -27,15 +27,15 @@ export const Responses$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type Responses$Outbound = {
+export type AIVisionGeneralAnalysisDataResponse$Outbound = {
   value?: string | undefined;
 };
 
 /** @internal */
-export const Responses$outboundSchema: z.ZodType<
-  Responses$Outbound,
+export const AIVisionGeneralAnalysisDataResponse$outboundSchema: z.ZodType<
+  AIVisionGeneralAnalysisDataResponse$Outbound,
   z.ZodTypeDef,
-  Responses
+  AIVisionGeneralAnalysisDataResponse
 > = z.object({
   value: z.string().optional(),
 });
@@ -44,26 +44,35 @@ export const Responses$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Responses$ {
-  /** @deprecated use `Responses$inboundSchema` instead. */
-  export const inboundSchema = Responses$inboundSchema;
-  /** @deprecated use `Responses$outboundSchema` instead. */
-  export const outboundSchema = Responses$outboundSchema;
-  /** @deprecated use `Responses$Outbound` instead. */
-  export type Outbound = Responses$Outbound;
+export namespace AIVisionGeneralAnalysisDataResponse$ {
+  /** @deprecated use `AIVisionGeneralAnalysisDataResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    AIVisionGeneralAnalysisDataResponse$inboundSchema;
+  /** @deprecated use `AIVisionGeneralAnalysisDataResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    AIVisionGeneralAnalysisDataResponse$outboundSchema;
+  /** @deprecated use `AIVisionGeneralAnalysisDataResponse$Outbound` instead. */
+  export type Outbound = AIVisionGeneralAnalysisDataResponse$Outbound;
 }
 
-export function responsesToJSON(responses: Responses): string {
-  return JSON.stringify(Responses$outboundSchema.parse(responses));
+export function aiVisionGeneralAnalysisDataResponseToJSON(
+  aiVisionGeneralAnalysisDataResponse: AIVisionGeneralAnalysisDataResponse,
+): string {
+  return JSON.stringify(
+    AIVisionGeneralAnalysisDataResponse$outboundSchema.parse(
+      aiVisionGeneralAnalysisDataResponse,
+    ),
+  );
 }
 
-export function responsesFromJSON(
+export function aiVisionGeneralAnalysisDataResponseFromJSON(
   jsonString: string,
-): SafeParseResult<Responses, SDKValidationError> {
+): SafeParseResult<AIVisionGeneralAnalysisDataResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Responses$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Responses' from JSON`,
+    (x) =>
+      AIVisionGeneralAnalysisDataResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AIVisionGeneralAnalysisDataResponse' from JSON`,
   );
 }
 
@@ -73,7 +82,9 @@ export const AIVisionGeneralAnalysisData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  responses: z.array(z.lazy(() => Responses$inboundSchema)),
+  responses: z.array(
+    z.lazy(() => AIVisionGeneralAnalysisDataResponse$inboundSchema),
+  ),
   model_version: z.number().int().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -83,7 +94,7 @@ export const AIVisionGeneralAnalysisData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AIVisionGeneralAnalysisData$Outbound = {
-  responses: Array<Responses$Outbound>;
+  responses: Array<AIVisionGeneralAnalysisDataResponse$Outbound>;
   model_version?: number | undefined;
 };
 
@@ -93,7 +104,9 @@ export const AIVisionGeneralAnalysisData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AIVisionGeneralAnalysisData
 > = z.object({
-  responses: z.array(z.lazy(() => Responses$outboundSchema)),
+  responses: z.array(
+    z.lazy(() => AIVisionGeneralAnalysisDataResponse$outboundSchema),
+  ),
   modelVersion: z.number().int().optional(),
 }).transform((v) => {
   return remap$(v, {

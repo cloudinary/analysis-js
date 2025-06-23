@@ -113,12 +113,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## aiVisionModeration
 
@@ -210,12 +210,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## aiVisionTagging
 
@@ -319,12 +319,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## captioning
 
@@ -408,12 +408,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## cldFashion
 
@@ -497,12 +497,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## cldText
 
@@ -586,12 +586,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## coco
 
@@ -675,12 +675,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## googleLogoDetection
 
@@ -764,12 +764,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## googleTagging
 
@@ -853,12 +853,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## humanAnatomy
 
@@ -942,12 +942,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## imageQuality
 
@@ -1031,12 +1031,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## lvis
 
@@ -1120,12 +1120,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## shopClassifier
 
@@ -1209,12 +1209,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## unidet
 
@@ -1298,12 +1298,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
 
 ## watermarkDetection
 
@@ -1387,9 +1387,9 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |

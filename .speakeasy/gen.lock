@@ -3,10 +3,10 @@ id: 2cbfefb5-ef48-4650-9f21-e38c7e05b9a9
 management:
   docChecksum: a65fdbfaf49bb322db3e3a5170b3aff3
   docVersion: 0.2.0
-  speakeasyVersion: 1.563.4
-  generationVersion: 2.630.6
-  releaseVersion: 0.4.1
-  configChecksum: 0138514aa4d3b5628bd4fa75078dea9d
+  speakeasyVersion: 1.568.0
+  generationVersion: 2.632.2
+  releaseVersion: 0.4.2
+  configChecksum: a133c67c9a21339f1827d3a0f9a42cc5
   repoURL: https://github.com/cloudinary/analysis-js.git
   installationURL: https://github.com/cloudinary/analysis-js
   published: true
@@ -29,7 +29,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.10
+    unions: 2.85.11
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -41,11 +41,13 @@ generatedFiles:
   - USAGE.md
   - docs/lib/utils/retryconfig.md
   - docs/models/components/aivisiongeneralanalysisdata.md
+  - docs/models/components/aivisiongeneralanalysisdataresponse.md
   - docs/models/components/aivisionmoderationanalysisdata.md
-  - docs/models/components/aivisionmoderationanalysisdataresponses.md
+  - docs/models/components/aivisionmoderationanalysisdataresponse.md
   - docs/models/components/aivisiontagginganalysisdata.md
   - docs/models/components/analyzeaivisiongeneralrequest.md
   - docs/models/components/analyzeaivisiongeneralresponse.md
+  - docs/models/components/analyzeaivisiongeneralresponsedata.md
   - docs/models/components/analyzeaivisionmoderationrequest.md
   - docs/models/components/analyzeaivisionmoderationresponse.md
   - docs/models/components/analyzeaivisionmoderationresponsedata.md
@@ -89,9 +91,8 @@ generatedFiles:
   - docs/models/components/cldtextanalysisdatatags.md
   - docs/models/components/cocoanalysisdata.md
   - docs/models/components/cocoanalysisdatatags.md
-  - docs/models/components/data.md
   - docs/models/components/details.md
-  - docs/models/components/detections.md
+  - docs/models/components/detection.md
   - docs/models/components/errorcategory.md
   - docs/models/components/errorobject.md
   - docs/models/components/feature.md
@@ -102,30 +103,29 @@ generatedFiles:
   - docs/models/components/humananatomyanalysisdata.md
   - docs/models/components/humananatomyanalysisdatatags.md
   - docs/models/components/imagequalityanalysisdata.md
+  - docs/models/components/label.md
   - docs/models/components/labelannotations.md
-  - docs/models/components/labels.md
   - docs/models/components/limit.md
   - docs/models/components/limitsobject.md
-  - docs/models/components/logoannotations.md
+  - docs/models/components/logoannotation.md
   - docs/models/components/lvisanalysisdata.md
   - docs/models/components/lvisanalysisdatatags.md
-  - docs/models/components/responses.md
   - docs/models/components/schemecloudinaryauth.md
   - docs/models/components/security.md
   - docs/models/components/shopclassifieranalysisdata.md
   - docs/models/components/shopclassifieranalysisdatatags.md
   - docs/models/components/source.md
-  - docs/models/components/tagdefinitions.md
-  - docs/models/components/tags.md
+  - docs/models/components/tag.md
+  - docs/models/components/tagdefinition.md
   - docs/models/components/taskstatus.md
   - docs/models/components/unidetanalysisdata.md
   - docs/models/components/unidetanalysisdatatags.md
   - docs/models/components/uri.md
   - docs/models/components/value.md
-  - docs/models/components/vertices.md
+  - docs/models/components/vertex.md
   - docs/models/components/watermarkdetectionanalysisdata.md
   - docs/models/errors/errorresponse.md
-  - docs/models/errors/ratelimitedresponse.md
+  - docs/models/errors/ratelimitedresponseerror.md
   - docs/models/operations/analyzeaivisiongeneralresponse.md
   - docs/models/operations/analyzeaivisionmoderationresponse.md
   - docs/models/operations/analyzeaivisiontaggingresponse.md
@@ -263,7 +263,7 @@ generatedFiles:
   - src/models/errors/errorresponse.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
-  - src/models/errors/ratelimitedresponse.ts
+  - src/models/errors/ratelimitedresponseerror.ts
   - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/models/operations/analyzeaivisiongeneral.ts

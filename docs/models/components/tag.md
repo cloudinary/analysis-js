@@ -1,15 +1,15 @@
-# Responses
+# Tag
 
 ## Example Usage
 
 ```typescript
-import { Responses } from "@cloudinary/analysis/models/components";
+import { Tag } from "@cloudinary/analysis/models/components";
 
-let value: Responses = {};
+let value: Tag = {};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `value`            | *string*           | :heavy_minus_sign: | N/A                |
+| `name`             | *string*           | :heavy_minus_sign: | N/A                |

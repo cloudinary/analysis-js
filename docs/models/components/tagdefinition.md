@@ -1,11 +1,11 @@
-# TagDefinitions
+# TagDefinition
 
 ## Example Usage
 
 ```typescript
-import { TagDefinitions } from "@cloudinary/analysis/models/components";
+import { TagDefinition } from "@cloudinary/analysis/models/components";
 
-let value: TagDefinitions = {
+let value: TagDefinition = {
   name: "cigarettes",
   description: "Does the image contain a pack of cigarettes?",
 };

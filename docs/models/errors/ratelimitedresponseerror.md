@@ -1,11 +1,11 @@
-# RateLimitedResponse
+# RateLimitedResponseError
 
 Rate limited
 
 ## Example Usage
 
 ```typescript
-import { RateLimitedResponse } from "@cloudinary/analysis/models/errors";
+import { RateLimitedResponseError } from "@cloudinary/analysis/models/errors";
 
 // No examples available for this model
 ```

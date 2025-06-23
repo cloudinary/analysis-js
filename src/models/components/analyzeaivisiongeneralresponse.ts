@@ -20,7 +20,7 @@ import {
   LimitsObject$outboundSchema,
 } from "./limitsobject.js";
 
-export type Data = {
+export type AnalyzeAIVisionGeneralResponseData = {
   entity?: string | undefined;
   analysis?: AIVisionGeneralAnalysisData | undefined;
 };
@@ -28,53 +28,67 @@ export type Data = {
 export type AnalyzeAIVisionGeneralResponse = {
   limits?: LimitsObject | null | undefined;
   requestId?: string | undefined;
-  data?: Data | undefined;
+  data?: AnalyzeAIVisionGeneralResponseData | undefined;
 };
 
 /** @internal */
-export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
-  .object({
-    entity: z.string().optional(),
-    analysis: AIVisionGeneralAnalysisData$inboundSchema.optional(),
-  });
+export const AnalyzeAIVisionGeneralResponseData$inboundSchema: z.ZodType<
+  AnalyzeAIVisionGeneralResponseData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  entity: z.string().optional(),
+  analysis: AIVisionGeneralAnalysisData$inboundSchema.optional(),
+});
 
 /** @internal */
-export type Data$Outbound = {
+export type AnalyzeAIVisionGeneralResponseData$Outbound = {
   entity?: string | undefined;
   analysis?: AIVisionGeneralAnalysisData$Outbound | undefined;
 };
 
 /** @internal */
-export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
-  z.object({
-    entity: z.string().optional(),
-    analysis: AIVisionGeneralAnalysisData$outboundSchema.optional(),
-  });
+export const AnalyzeAIVisionGeneralResponseData$outboundSchema: z.ZodType<
+  AnalyzeAIVisionGeneralResponseData$Outbound,
+  z.ZodTypeDef,
+  AnalyzeAIVisionGeneralResponseData
+> = z.object({
+  entity: z.string().optional(),
+  analysis: AIVisionGeneralAnalysisData$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Data$ {
-  /** @deprecated use `Data$inboundSchema` instead. */
-  export const inboundSchema = Data$inboundSchema;
-  /** @deprecated use `Data$outboundSchema` instead. */
-  export const outboundSchema = Data$outboundSchema;
-  /** @deprecated use `Data$Outbound` instead. */
-  export type Outbound = Data$Outbound;
+export namespace AnalyzeAIVisionGeneralResponseData$ {
+  /** @deprecated use `AnalyzeAIVisionGeneralResponseData$inboundSchema` instead. */
+  export const inboundSchema = AnalyzeAIVisionGeneralResponseData$inboundSchema;
+  /** @deprecated use `AnalyzeAIVisionGeneralResponseData$outboundSchema` instead. */
+  export const outboundSchema =
+    AnalyzeAIVisionGeneralResponseData$outboundSchema;
+  /** @deprecated use `AnalyzeAIVisionGeneralResponseData$Outbound` instead. */
+  export type Outbound = AnalyzeAIVisionGeneralResponseData$Outbound;
 }
 
-export function dataToJSON(data: Data): string {
-  return JSON.stringify(Data$outboundSchema.parse(data));
+export function analyzeAIVisionGeneralResponseDataToJSON(
+  analyzeAIVisionGeneralResponseData: AnalyzeAIVisionGeneralResponseData,
+): string {
+  return JSON.stringify(
+    AnalyzeAIVisionGeneralResponseData$outboundSchema.parse(
+      analyzeAIVisionGeneralResponseData,
+    ),
+  );
 }
 
-export function dataFromJSON(
+export function analyzeAIVisionGeneralResponseDataFromJSON(
   jsonString: string,
-): SafeParseResult<Data, SDKValidationError> {
+): SafeParseResult<AnalyzeAIVisionGeneralResponseData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Data' from JSON`,
+    (x) =>
+      AnalyzeAIVisionGeneralResponseData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AnalyzeAIVisionGeneralResponseData' from JSON`,
   );
 }
 
@@ -86,7 +100,8 @@ export const AnalyzeAIVisionGeneralResponse$inboundSchema: z.ZodType<
 > = z.object({
   limits: z.nullable(LimitsObject$inboundSchema).optional(),
   request_id: z.string().optional(),
-  data: z.lazy(() => Data$inboundSchema).optional(),
+  data: z.lazy(() => AnalyzeAIVisionGeneralResponseData$inboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "request_id": "requestId",
@@ -97,7 +112,7 @@ export const AnalyzeAIVisionGeneralResponse$inboundSchema: z.ZodType<
 export type AnalyzeAIVisionGeneralResponse$Outbound = {
   limits?: LimitsObject$Outbound | null | undefined;
   request_id?: string | undefined;
-  data?: Data$Outbound | undefined;
+  data?: AnalyzeAIVisionGeneralResponseData$Outbound | undefined;
 };
 
 /** @internal */
@@ -108,7 +123,8 @@ export const AnalyzeAIVisionGeneralResponse$outboundSchema: z.ZodType<
 > = z.object({
   limits: z.nullable(LimitsObject$outboundSchema).optional(),
   requestId: z.string().optional(),
-  data: z.lazy(() => Data$outboundSchema).optional(),
+  data: z.lazy(() => AnalyzeAIVisionGeneralResponseData$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     requestId: "request_id",

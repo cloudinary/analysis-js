@@ -40,7 +40,7 @@ export function tasksGetStatus(
   Result<
     components.GetTaskStatusResponse,
     | errors.ErrorResponse
-    | errors.RateLimitedResponse
+    | errors.RateLimitedResponseError
     | CloudinaryAnalysisError
     | ResponseValidationError
     | ConnectionError
@@ -67,7 +67,7 @@ async function $do(
     Result<
       components.GetTaskStatusResponse,
       | errors.ErrorResponse
-      | errors.RateLimitedResponse
+      | errors.RateLimitedResponseError
       | CloudinaryAnalysisError
       | ResponseValidationError
       | ConnectionError
@@ -160,7 +160,7 @@ async function $do(
   const [result] = await M.match<
     components.GetTaskStatusResponse,
     | errors.ErrorResponse
-    | errors.RateLimitedResponse
+    | errors.RateLimitedResponseError
     | CloudinaryAnalysisError
     | ResponseValidationError
     | ConnectionError
@@ -172,7 +172,7 @@ async function $do(
   >(
     M.json(200, components.GetTaskStatusResponse$inboundSchema),
     M.jsonErr([400, 401, 403, 404], errors.ErrorResponse$inboundSchema),
-    M.jsonErr(429, errors.RateLimitedResponse$inboundSchema),
+    M.jsonErr(429, errors.RateLimitedResponseError$inboundSchema),
     M.jsonErr(500, errors.ErrorResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
