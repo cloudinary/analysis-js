@@ -540,7 +540,7 @@ run();
 **Primary errors:**
 * [`CloudinaryAnalysisError`](./src/models/errors/cloudinaryanalysiserror.ts): The base class for HTTP error responses.
   * [`ErrorResponse`](docs/models/errors/errorresponse.md): Bad request.
-  * [`RateLimitedResponse`](docs/models/errors/ratelimitedresponse.md): Rate limited. Status code `429`.
+  * [`RateLimitedResponseError`](docs/models/errors/ratelimitedresponseerror.md): Rate limited. Status code `429`.
 
 <details><summary>Less common errors (6)</summary>
 

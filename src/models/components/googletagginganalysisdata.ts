@@ -8,13 +8,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Labels = {
+export type Label = {
   label: string;
   score: number;
 };
 
 export type LabelAnnotations = {
-  labels?: Array<Labels> | undefined;
+  labels?: Array<Label> | undefined;
 };
 
 export type GoogleTaggingAnalysisData = {
@@ -22,23 +22,23 @@ export type GoogleTaggingAnalysisData = {
 };
 
 /** @internal */
-export const Labels$inboundSchema: z.ZodType<Labels, z.ZodTypeDef, unknown> = z
+export const Label$inboundSchema: z.ZodType<Label, z.ZodTypeDef, unknown> = z
   .object({
     label: z.string(),
     score: z.number(),
   });
 
 /** @internal */
-export type Labels$Outbound = {
+export type Label$Outbound = {
   label: string;
   score: number;
 };
 
 /** @internal */
-export const Labels$outboundSchema: z.ZodType<
-  Labels$Outbound,
+export const Label$outboundSchema: z.ZodType<
+  Label$Outbound,
   z.ZodTypeDef,
-  Labels
+  Label
 > = z.object({
   label: z.string(),
   score: z.number(),
@@ -48,26 +48,26 @@ export const Labels$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Labels$ {
-  /** @deprecated use `Labels$inboundSchema` instead. */
-  export const inboundSchema = Labels$inboundSchema;
-  /** @deprecated use `Labels$outboundSchema` instead. */
-  export const outboundSchema = Labels$outboundSchema;
-  /** @deprecated use `Labels$Outbound` instead. */
-  export type Outbound = Labels$Outbound;
+export namespace Label$ {
+  /** @deprecated use `Label$inboundSchema` instead. */
+  export const inboundSchema = Label$inboundSchema;
+  /** @deprecated use `Label$outboundSchema` instead. */
+  export const outboundSchema = Label$outboundSchema;
+  /** @deprecated use `Label$Outbound` instead. */
+  export type Outbound = Label$Outbound;
 }
 
-export function labelsToJSON(labels: Labels): string {
-  return JSON.stringify(Labels$outboundSchema.parse(labels));
+export function labelToJSON(label: Label): string {
+  return JSON.stringify(Label$outboundSchema.parse(label));
 }
 
-export function labelsFromJSON(
+export function labelFromJSON(
   jsonString: string,
-): SafeParseResult<Labels, SDKValidationError> {
+): SafeParseResult<Label, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Labels$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Labels' from JSON`,
+    (x) => Label$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Label' from JSON`,
   );
 }
 
@@ -77,12 +77,12 @@ export const LabelAnnotations$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  labels: z.array(z.lazy(() => Labels$inboundSchema)).optional(),
+  labels: z.array(z.lazy(() => Label$inboundSchema)).optional(),
 });
 
 /** @internal */
 export type LabelAnnotations$Outbound = {
-  labels?: Array<Labels$Outbound> | undefined;
+  labels?: Array<Label$Outbound> | undefined;
 };
 
 /** @internal */
@@ -91,7 +91,7 @@ export const LabelAnnotations$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LabelAnnotations
 > = z.object({
-  labels: z.array(z.lazy(() => Labels$outboundSchema)).optional(),
+  labels: z.array(z.lazy(() => Label$outboundSchema)).optional(),
 });
 
 /**

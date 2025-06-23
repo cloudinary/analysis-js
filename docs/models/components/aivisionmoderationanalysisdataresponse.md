@@ -1,11 +1,11 @@
-# AIVisionModerationAnalysisDataResponses
+# AIVisionModerationAnalysisDataResponse
 
 ## Example Usage
 
 ```typescript
-import { AIVisionModerationAnalysisDataResponses } from "@cloudinary/analysis/models/components";
+import { AIVisionModerationAnalysisDataResponse } from "@cloudinary/analysis/models/components";
 
-let value: AIVisionModerationAnalysisDataResponses = {};
+let value: AIVisionModerationAnalysisDataResponse = {};
 ```
 
 ## Fields

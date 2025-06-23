@@ -8,29 +8,29 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Tags = {
+export type Tag = {
   name?: string | undefined;
 };
 
 export type AIVisionTaggingAnalysisData = {
-  tags: Array<Tags>;
+  tags: Array<Tag>;
   modelVersion?: number | undefined;
 };
 
 /** @internal */
-export const Tags$inboundSchema: z.ZodType<Tags, z.ZodTypeDef, unknown> = z
+export const Tag$inboundSchema: z.ZodType<Tag, z.ZodTypeDef, unknown> = z
   .object({
     name: z.string().optional(),
   });
 
 /** @internal */
-export type Tags$Outbound = {
+export type Tag$Outbound = {
   name?: string | undefined;
 };
 
 /** @internal */
-export const Tags$outboundSchema: z.ZodType<Tags$Outbound, z.ZodTypeDef, Tags> =
-  z.object({
+export const Tag$outboundSchema: z.ZodType<Tag$Outbound, z.ZodTypeDef, Tag> = z
+  .object({
     name: z.string().optional(),
   });
 
@@ -38,26 +38,26 @@ export const Tags$outboundSchema: z.ZodType<Tags$Outbound, z.ZodTypeDef, Tags> =
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Tags$ {
-  /** @deprecated use `Tags$inboundSchema` instead. */
-  export const inboundSchema = Tags$inboundSchema;
-  /** @deprecated use `Tags$outboundSchema` instead. */
-  export const outboundSchema = Tags$outboundSchema;
-  /** @deprecated use `Tags$Outbound` instead. */
-  export type Outbound = Tags$Outbound;
+export namespace Tag$ {
+  /** @deprecated use `Tag$inboundSchema` instead. */
+  export const inboundSchema = Tag$inboundSchema;
+  /** @deprecated use `Tag$outboundSchema` instead. */
+  export const outboundSchema = Tag$outboundSchema;
+  /** @deprecated use `Tag$Outbound` instead. */
+  export type Outbound = Tag$Outbound;
 }
 
-export function tagsToJSON(tags: Tags): string {
-  return JSON.stringify(Tags$outboundSchema.parse(tags));
+export function tagToJSON(tag: Tag): string {
+  return JSON.stringify(Tag$outboundSchema.parse(tag));
 }
 
-export function tagsFromJSON(
+export function tagFromJSON(
   jsonString: string,
-): SafeParseResult<Tags, SDKValidationError> {
+): SafeParseResult<Tag, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Tags$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Tags' from JSON`,
+    (x) => Tag$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Tag' from JSON`,
   );
 }
 
@@ -67,7 +67,7 @@ export const AIVisionTaggingAnalysisData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  tags: z.array(z.lazy(() => Tags$inboundSchema)),
+  tags: z.array(z.lazy(() => Tag$inboundSchema)),
   model_version: z.number().int().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -77,7 +77,7 @@ export const AIVisionTaggingAnalysisData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AIVisionTaggingAnalysisData$Outbound = {
-  tags: Array<Tags$Outbound>;
+  tags: Array<Tag$Outbound>;
   model_version?: number | undefined;
 };
 
@@ -87,7 +87,7 @@ export const AIVisionTaggingAnalysisData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AIVisionTaggingAnalysisData
 > = z.object({
-  tags: z.array(z.lazy(() => Tags$outboundSchema)),
+  tags: z.array(z.lazy(() => Tag$outboundSchema)),
   modelVersion: z.number().int().optional(),
 }).transform((v) => {
   return remap$(v, {

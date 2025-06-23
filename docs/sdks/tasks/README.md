@@ -83,9 +83,9 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponse       | 400, 401, 403, 404         | application/json           |
-| errors.RateLimitedResponse | 429                        | application/json           |
-| errors.ErrorResponse       | 500                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorResponse            | 400, 401, 403, 404              | application/json                |
+| errors.RateLimitedResponseError | 429                             | application/json                |
+| errors.ErrorResponse            | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |

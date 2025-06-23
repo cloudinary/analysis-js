@@ -1,11 +1,11 @@
-# Vertices
+# Vertex
 
 ## Example Usage
 
 ```typescript
-import { Vertices } from "@cloudinary/analysis/models/components";
+import { Vertex } from "@cloudinary/analysis/models/components";
 
-let value: Vertices = {};
+let value: Vertex = {};
 ```
 
 ## Fields

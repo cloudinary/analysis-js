@@ -1,11 +1,11 @@
-# Data
+# AnalyzeAIVisionGeneralResponseData
 
 ## Example Usage
 
 ```typescript
-import { Data } from "@cloudinary/analysis/models/components";
+import { AnalyzeAIVisionGeneralResponseData } from "@cloudinary/analysis/models/components";
 
-let value: Data = {
+let value: AnalyzeAIVisionGeneralResponseData = {
   analysis: {
     responses: [
       {

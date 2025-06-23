@@ -8,19 +8,19 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Detections = {
+export type Detection = {
   name: string;
   confidence: number;
 };
 
 export type WatermarkDetectionAnalysisData = {
-  detections?: Array<Detections> | undefined;
+  detections?: Array<Detection> | undefined;
   modelVersion?: number | undefined;
 };
 
 /** @internal */
-export const Detections$inboundSchema: z.ZodType<
-  Detections,
+export const Detection$inboundSchema: z.ZodType<
+  Detection,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -29,16 +29,16 @@ export const Detections$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type Detections$Outbound = {
+export type Detection$Outbound = {
   name: string;
   confidence: number;
 };
 
 /** @internal */
-export const Detections$outboundSchema: z.ZodType<
-  Detections$Outbound,
+export const Detection$outboundSchema: z.ZodType<
+  Detection$Outbound,
   z.ZodTypeDef,
-  Detections
+  Detection
 > = z.object({
   name: z.string(),
   confidence: z.number(),
@@ -48,26 +48,26 @@ export const Detections$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Detections$ {
-  /** @deprecated use `Detections$inboundSchema` instead. */
-  export const inboundSchema = Detections$inboundSchema;
-  /** @deprecated use `Detections$outboundSchema` instead. */
-  export const outboundSchema = Detections$outboundSchema;
-  /** @deprecated use `Detections$Outbound` instead. */
-  export type Outbound = Detections$Outbound;
+export namespace Detection$ {
+  /** @deprecated use `Detection$inboundSchema` instead. */
+  export const inboundSchema = Detection$inboundSchema;
+  /** @deprecated use `Detection$outboundSchema` instead. */
+  export const outboundSchema = Detection$outboundSchema;
+  /** @deprecated use `Detection$Outbound` instead. */
+  export type Outbound = Detection$Outbound;
 }
 
-export function detectionsToJSON(detections: Detections): string {
-  return JSON.stringify(Detections$outboundSchema.parse(detections));
+export function detectionToJSON(detection: Detection): string {
+  return JSON.stringify(Detection$outboundSchema.parse(detection));
 }
 
-export function detectionsFromJSON(
+export function detectionFromJSON(
   jsonString: string,
-): SafeParseResult<Detections, SDKValidationError> {
+): SafeParseResult<Detection, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Detections$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Detections' from JSON`,
+    (x) => Detection$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Detection' from JSON`,
   );
 }
 
@@ -77,7 +77,7 @@ export const WatermarkDetectionAnalysisData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  detections: z.array(z.lazy(() => Detections$inboundSchema)).optional(),
+  detections: z.array(z.lazy(() => Detection$inboundSchema)).optional(),
   model_version: z.number().int().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -87,7 +87,7 @@ export const WatermarkDetectionAnalysisData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type WatermarkDetectionAnalysisData$Outbound = {
-  detections?: Array<Detections$Outbound> | undefined;
+  detections?: Array<Detection$Outbound> | undefined;
   model_version?: number | undefined;
 };
 
@@ -97,7 +97,7 @@ export const WatermarkDetectionAnalysisData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WatermarkDetectionAnalysisData
 > = z.object({
-  detections: z.array(z.lazy(() => Detections$outboundSchema)).optional(),
+  detections: z.array(z.lazy(() => Detection$outboundSchema)).optional(),
   modelVersion: z.number().int().optional(),
 }).transform((v) => {
   return remap$(v, {

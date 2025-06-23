@@ -1,13 +1,14 @@
-# LogoAnnotations
+# LogoAnnotation
 
 ## Example Usage
 
 ```typescript
-import { LogoAnnotations } from "@cloudinary/analysis/models/components";
+import { LogoAnnotation } from "@cloudinary/analysis/models/components";
 
-let value: LogoAnnotations = {
-  description: "crocodile until pish programme moor woefully weird",
-  score: 6490.09,
+let value: LogoAnnotation = {
+  description:
+    "whenever grave rebel kettledrum outlaw access replacement empty kinase",
+  score: 9727.12,
   boundingPoly: {},
 };
 ```

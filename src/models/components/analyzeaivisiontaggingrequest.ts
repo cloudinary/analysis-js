@@ -14,7 +14,7 @@ import {
   Source$outboundSchema,
 } from "./source.js";
 
-export type TagDefinitions = {
+export type TagDefinition = {
   /**
    * The name of the tag to apply. This can be any string and does not affect the decision process
    */
@@ -39,12 +39,12 @@ export type AnalyzeAIVisionTaggingRequest = {
    * The webhook URL to notify when the analysis is complete. Only relevant when async is set to true.
    */
   notificationUrl?: string | undefined;
-  tagDefinitions: Array<TagDefinitions>;
+  tagDefinitions: Array<TagDefinition>;
 };
 
 /** @internal */
-export const TagDefinitions$inboundSchema: z.ZodType<
-  TagDefinitions,
+export const TagDefinition$inboundSchema: z.ZodType<
+  TagDefinition,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -53,16 +53,16 @@ export const TagDefinitions$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TagDefinitions$Outbound = {
+export type TagDefinition$Outbound = {
   name: string;
   description: string;
 };
 
 /** @internal */
-export const TagDefinitions$outboundSchema: z.ZodType<
-  TagDefinitions$Outbound,
+export const TagDefinition$outboundSchema: z.ZodType<
+  TagDefinition$Outbound,
   z.ZodTypeDef,
-  TagDefinitions
+  TagDefinition
 > = z.object({
   name: z.string(),
   description: z.string(),
@@ -72,26 +72,26 @@ export const TagDefinitions$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TagDefinitions$ {
-  /** @deprecated use `TagDefinitions$inboundSchema` instead. */
-  export const inboundSchema = TagDefinitions$inboundSchema;
-  /** @deprecated use `TagDefinitions$outboundSchema` instead. */
-  export const outboundSchema = TagDefinitions$outboundSchema;
-  /** @deprecated use `TagDefinitions$Outbound` instead. */
-  export type Outbound = TagDefinitions$Outbound;
+export namespace TagDefinition$ {
+  /** @deprecated use `TagDefinition$inboundSchema` instead. */
+  export const inboundSchema = TagDefinition$inboundSchema;
+  /** @deprecated use `TagDefinition$outboundSchema` instead. */
+  export const outboundSchema = TagDefinition$outboundSchema;
+  /** @deprecated use `TagDefinition$Outbound` instead. */
+  export type Outbound = TagDefinition$Outbound;
 }
 
-export function tagDefinitionsToJSON(tagDefinitions: TagDefinitions): string {
-  return JSON.stringify(TagDefinitions$outboundSchema.parse(tagDefinitions));
+export function tagDefinitionToJSON(tagDefinition: TagDefinition): string {
+  return JSON.stringify(TagDefinition$outboundSchema.parse(tagDefinition));
 }
 
-export function tagDefinitionsFromJSON(
+export function tagDefinitionFromJSON(
   jsonString: string,
-): SafeParseResult<TagDefinitions, SDKValidationError> {
+): SafeParseResult<TagDefinition, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TagDefinitions$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TagDefinitions' from JSON`,
+    (x) => TagDefinition$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TagDefinition' from JSON`,
   );
 }
 
@@ -104,7 +104,7 @@ export const AnalyzeAIVisionTaggingRequest$inboundSchema: z.ZodType<
   source: Source$inboundSchema,
   async: z.boolean().optional(),
   notification_url: z.string().optional(),
-  tag_definitions: z.array(z.lazy(() => TagDefinitions$inboundSchema)),
+  tag_definitions: z.array(z.lazy(() => TagDefinition$inboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     "notification_url": "notificationUrl",
@@ -117,7 +117,7 @@ export type AnalyzeAIVisionTaggingRequest$Outbound = {
   source: Source$Outbound;
   async?: boolean | undefined;
   notification_url?: string | undefined;
-  tag_definitions: Array<TagDefinitions$Outbound>;
+  tag_definitions: Array<TagDefinition$Outbound>;
 };
 
 /** @internal */
@@ -129,7 +129,7 @@ export const AnalyzeAIVisionTaggingRequest$outboundSchema: z.ZodType<
   source: Source$outboundSchema,
   async: z.boolean().optional(),
   notificationUrl: z.string().optional(),
-  tagDefinitions: z.array(z.lazy(() => TagDefinitions$outboundSchema)),
+  tagDefinitions: z.array(z.lazy(() => TagDefinition$outboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     notificationUrl: "notification_url",

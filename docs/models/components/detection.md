@@ -1,11 +1,11 @@
-# Detections
+# Detection
 
 ## Example Usage
 
 ```typescript
-import { Detections } from "@cloudinary/analysis/models/components";
+import { Detection } from "@cloudinary/analysis/models/components";
 
-let value: Detections = {
+let value: Detection = {
   name: "banner",
   confidence: 0.99,
 };
