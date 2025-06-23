@@ -1,5 +1,6 @@
 import { Hooks } from "./types.js";
-import {CloudinaryHook} from "./cloudinaryHook.js";
+import { CloudinaryHook } from "./cloudinaryHook.js";
+import { UserAgentHook } from "./userAgentHook.js";
 
 /*
  * This file is only ever generated once on the first generation and then is free to be modified.
@@ -10,4 +11,7 @@ import {CloudinaryHook} from "./cloudinaryHook.js";
 export function initHooks(hooks: Hooks) {
     const cldHook = new CloudinaryHook();
     hooks.registerBeforeRequestHook(cldHook);
+
+    const userAgentHook = new UserAgentHook();
+    hooks.registerSDKInitHook(userAgentHook);
 }
